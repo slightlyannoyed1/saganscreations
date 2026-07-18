@@ -1,0 +1,421 @@
+:root {
+  --pink: #ff6fa5;
+  --pink-light: #ffd6e8;
+  --orange: #ff9f43;
+  --yellow: #ffd93d;
+  --yellow-light: #fff3b0;
+  --green: #4ecdc4;
+  --blue: #5b9df0;
+  --blue-light: #d6e9ff;
+  --purple: #a78bfa;
+  --purple-light: #ecdcff;
+  --cream: #fffaf0;
+  --text-dark: #4a3b52;
+  --shadow: rgba(74, 59, 82, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Quicksand', sans-serif;
+  color: var(--text-dark);
+  background: linear-gradient(180deg, #fff6fb 0%, #fef9e7 35%, #eafffb 70%, #f2ecff 100%);
+  background-attachment: fixed;
+  overflow-x: hidden;
+  position: relative;
+}
+
+h1, h2, h3 {
+  font-family: 'Baloo 2', cursive;
+}
+
+/* Floating background decorations */
+.bg-shapes {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.shape {
+  position: absolute;
+  font-size: 2.5rem;
+  opacity: 0.35;
+  animation: float 12s ease-in-out infinite;
+}
+
+.shape-1 { top: 8%; left: 4%; animation-delay: 0s; }
+.shape-2 { top: 20%; right: 6%; animation-delay: 2s; font-size: 3rem; }
+.shape-3 { top: 55%; left: 2%; animation-delay: 4s; }
+.shape-4 { top: 75%; right: 8%; animation-delay: 1s; }
+.shape-5 { top: 40%; right: 3%; animation-delay: 3s; font-size: 2rem; }
+.shape-6 { top: 85%; left: 10%; animation-delay: 5s; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-25px) rotate(10deg); }
+}
+
+/* Header */
+.site-header {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 3rem 1.5rem 2.5rem;
+  background: linear-gradient(120deg, var(--pink), var(--orange), var(--yellow));
+  background-size: 200% 200%;
+  animation: gradientShift 10s ease infinite;
+  border-radius: 0 0 40px 40px;
+  box-shadow: 0 8px 24px var(--shadow);
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.logo {
+  font-size: clamp(2.2rem, 6vw, 3.6rem);
+  color: #fff;
+  margin: 0;
+  text-shadow: 3px 3px 0 rgba(0,0,0,0.15);
+  letter-spacing: 1px;
+}
+
+.logo-emoji {
+  display: inline-block;
+  animation: wiggle 2.5s ease-in-out infinite;
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-12deg); }
+  75% { transform: rotate(12deg); }
+}
+
+.tagline {
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.15rem;
+  margin: 0.75rem 0 0;
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.1);
+}
+
+main {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Intro */
+.intro {
+  text-align: center;
+  max-width: 700px;
+  margin: 2.5rem auto;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  background: #fff;
+  padding: 1.5rem 2rem;
+  border-radius: 24px;
+  box-shadow: 0 6px 16px var(--shadow);
+  border: 3px dashed var(--pink);
+}
+
+/* Pricing guide */
+.pricing-guide {
+  text-align: center;
+  margin: 2.5rem auto;
+}
+
+.pricing-guide h2 {
+  font-size: 1.8rem;
+  color: var(--text-dark);
+}
+
+.price-chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+}
+
+.price-chip {
+  border-radius: 20px;
+  padding: 1.25rem 1.75rem;
+  min-width: 170px;
+  color: #fff;
+  box-shadow: 0 6px 14px var(--shadow);
+  transform: rotate(-2deg);
+  transition: transform 0.2s ease;
+}
+
+.price-chip:nth-child(2) { transform: rotate(1.5deg); }
+.price-chip:nth-child(3) { transform: rotate(-1deg); }
+
+.price-chip:hover {
+  transform: scale(1.06) rotate(0deg);
+}
+
+.chip-pink { background: linear-gradient(135deg, var(--pink), #ff8fbf); }
+.chip-yellow { background: linear-gradient(135deg, var(--orange), var(--yellow)); }
+.chip-blue { background: linear-gradient(135deg, var(--blue), var(--green)); }
+
+.price-amount {
+  display: block;
+  font-family: 'Baloo 2', cursive;
+  font-size: 2.2rem;
+  font-weight: 800;
+}
+
+.price-label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* Category sections */
+.category {
+  margin: 3.5rem 0;
+}
+
+.category-title {
+  text-align: center;
+  font-size: clamp(1.7rem, 4vw, 2.4rem);
+  margin-bottom: 0.4rem;
+}
+
+.category-title-food { color: var(--orange); }
+.category-title-mosaic { color: var(--purple); }
+
+.category-desc {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  font-size: 1.05rem;
+  color: var(--text-dark);
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.75rem;
+}
+
+.product-card {
+  background: #fff;
+  border-radius: 22px;
+  padding: 1.25rem;
+  box-shadow: 0 6px 16px var(--shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 3px solid transparent;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card:hover {
+  transform: translateY(-6px) rotate(-0.5deg);
+  box-shadow: 0 12px 24px var(--shadow);
+  border-color: var(--yellow);
+}
+
+.pack-card {
+  border-color: var(--green);
+}
+
+.product-photo.placeholder-photo {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 3px dashed;
+  margin-bottom: 1rem;
+}
+
+.food-placeholder {
+  background: var(--yellow-light);
+  border-color: var(--orange);
+}
+
+.mosaic-placeholder {
+  background: var(--purple-light);
+  border-color: var(--purple);
+}
+
+.placeholder-icon {
+  font-size: 2.2rem;
+}
+
+.placeholder-text {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  opacity: 0.7;
+}
+
+.product-name {
+  font-size: 1.25rem;
+  margin: 0 0 0.4rem;
+  color: var(--text-dark);
+}
+
+.product-desc {
+  font-size: 0.95rem;
+  line-height: 1.45;
+  margin: 0 0 0.9rem;
+  flex-grow: 1;
+}
+
+.product-price {
+  font-family: 'Baloo 2', cursive;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--pink);
+  margin: 0;
+}
+
+.price-note {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  opacity: 0.65;
+}
+
+/* Custom orders */
+.custom-orders {
+  margin: 3.5rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.custom-box {
+  background: linear-gradient(135deg, var(--purple), var(--pink));
+  color: #fff;
+  border-radius: 28px;
+  padding: 2rem 2.5rem;
+  max-width: 650px;
+  text-align: center;
+  box-shadow: 0 8px 20px var(--shadow);
+}
+
+.custom-box h2 {
+  margin-top: 0;
+  font-size: 1.7rem;
+}
+
+.custom-box p {
+  line-height: 1.6;
+  font-size: 1.05rem;
+}
+
+.youtube-btn {
+  display: inline-block;
+  margin-top: 0.75rem;
+  background: #fff;
+  color: var(--pink);
+  font-weight: 700;
+  font-family: 'Baloo 2', cursive;
+  text-decoration: none;
+  padding: 0.8rem 1.6rem;
+  border-radius: 50px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transition: transform 0.2s ease;
+}
+
+.youtube-btn:hover {
+  transform: scale(1.05);
+}
+
+.youtube-btn em {
+  font-style: normal;
+  font-size: 0.75rem;
+  opacity: 0.6;
+  display: block;
+}
+
+/* How to order */
+.how-to-order {
+  margin: 3.5rem 0 4rem;
+  text-align: center;
+}
+
+.how-to-order h2 {
+  font-size: 1.9rem;
+  color: var(--blue);
+}
+
+.order-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.75rem;
+}
+
+.order-step {
+  background: var(--blue-light);
+  border-radius: 20px;
+  padding: 1.75rem 1.25rem;
+  position: relative;
+  box-shadow: 0 6px 14px var(--shadow);
+}
+
+.step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  background: var(--blue);
+  color: #fff;
+  border-radius: 50%;
+  font-family: 'Baloo 2', cursive;
+  font-weight: 800;
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+}
+
+.order-step h3 {
+  margin: 0.3rem 0 0.5rem;
+  font-size: 1.15rem;
+  color: var(--text-dark);
+}
+
+.order-step p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Footer */
+.site-footer {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  background: var(--pink);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 40px 40px 0 0;
+  margin-top: 2rem;
+}
+
+@media (max-width: 480px) {
+  .price-chip { min-width: 140px; padding: 1rem 1.25rem; }
+  .custom-box { padding: 1.5rem; }
+}
